@@ -256,6 +256,8 @@ public class AsmClassGenerator extends ClassGenerator {
             throw new GroovyRuntimeException("NegativeArraySizeException while processing "+sourceFile, nase);
         } catch (NullPointerException npe) {
             throw new GroovyRuntimeException("NPE while processing "+sourceFile, npe);
+        } catch (StackOverflowError soe) {
+            throw new GroovyRuntimeException("StackOverflowError " + soe.getMessage() + "while processing "+sourceFile, soe);
         }
     }
 
